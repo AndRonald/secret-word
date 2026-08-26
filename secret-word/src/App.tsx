@@ -1,15 +1,19 @@
-import { Game } from './components/Game'
-import { GameOver } from './components/GameOver'
+import { Game } from "./components/Game";
+import { GameOver } from "./components/GameOver";
 import { StartScreen } from "./components/StartScreen";
+import { Container } from "./components/Container";
 import { useState } from "react";
 // import { wordsList } from "./data/words";
 
-import "./App.css";
+import "./styles/themes.css";
+import "./styles/global.css";
+import { Logo } from "./components/Logo";
+import { Menu } from "./components/Menu";
 
 const stages = [
-  { id: 1, name: "start" },
-  { id: 2, name: "game" },
-  { id: 3, name: "end" },
+  { id: 0, name: "start" },
+  { id: 1, name: "game" },
+  { id: 2, name: "end" },
 ];
 
 // const guessesQty: number = 0;
@@ -26,10 +30,20 @@ export function App() {
   // const [guesses, setGuesses] = useState<number>(guessesQty)
 
   return (
-    <div className="App">
-      {gameStage === "start" && <StartScreen />}
-      {gameStage === 'game' && <Game/>}
-      {gameStage === 'end' && <GameOver/>}
-    </div>
+    <>
+      <Container>
+        <Logo />
+      </Container>
+
+      <Container>
+        <Menu />
+      </Container>
+
+      <Container>
+        {gameStage === "start" && <StartScreen />}
+        {gameStage === "game" && <Game />}
+        {gameStage === "end" && <GameOver />}
+      </Container>
+    </>
   );
 }
