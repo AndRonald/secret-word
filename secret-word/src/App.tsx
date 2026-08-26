@@ -9,6 +9,7 @@ import "./styles/themes.css";
 import "./styles/global.css";
 import { Logo } from "./components/Logo";
 import { Menu } from "./components/Menu";
+import { Footer } from "./components/Footer";
 
 const stages = [
   { id: 0, name: "start" },
@@ -43,6 +44,10 @@ export function App() {
         {gameStage === "start" && <StartScreen />}
         {gameStage === "game" && <Game />}
         {gameStage === "end" && <GameOver />}
+      </Container>
+
+      <Container>
+        <Footer/>
       </Container>
     </>
   );
