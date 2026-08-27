@@ -1,9 +1,8 @@
 .menu {
-    margin: 3.2rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.6rem;
+    gap: 1.3rem;
 }
 
 .menuLink{
@@ -14,7 +13,7 @@
     color: var(--text-over-primary);
     background-color: var(--primary);
     transition: all 0.1s ease-in-out;
-    padding: 1.2rem;
+    padding: 0.9rem;
     border-radius: 0.8rem;
 }
 
