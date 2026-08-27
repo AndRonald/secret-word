@@ -5,11 +5,12 @@ import { Container } from "./components/Container";
 import { useState } from "react";
 // import { wordsList } from "./data/words";
 
-import "./styles/themes.css";
-import "./styles/global.css";
 import { Logo } from "./components/Logo";
 import { Menu } from "./components/Menu";
 import { Footer } from "./components/Footer";
+
+import "./styles/themes.css";
+import "./styles/global.css";
 
 const stages = [
   { id: 0, name: "start" },
