@@ -5,8 +5,7 @@ export function Logo() {
   return (
     <div className={styles.logo}>
       <a className={styles.logoLink} href="">
-        <EarthIcon />
-        <span>SECRETWORD</span>
+        <span>SECRETW<EarthIcon className={styles.logoteste}/>RD</span>
       </a>
     </div>
   );
