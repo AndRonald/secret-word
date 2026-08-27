@@ -3,6 +3,7 @@
     background-color: var(--primary);
     color: var(--text-over-primary);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-width: 24rem;
@@ -12,6 +13,11 @@
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     font-size: 1.4rem;
+}
+
+.button svg {
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
 .button:hover{

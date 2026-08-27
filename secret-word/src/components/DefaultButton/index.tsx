@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 
 type DefaultButtonProps = {
-    children: string
+    children: React.ReactNode
 } & React.ComponentProps<'button'>
 
 export function DefaultButton({children, ...props}: DefaultButtonProps) {
