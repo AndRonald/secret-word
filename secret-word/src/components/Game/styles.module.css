@@ -2,8 +2,13 @@
   font-size: 2.4em;
 }
 
+.game h3, p {
+    font-size: 1.4em;
+}
+
 .points span {
   font-weight: bold;
+  font-size: 1.6em;
 }
 
 .tip span {
