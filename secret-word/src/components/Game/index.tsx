@@ -1,26 +1,81 @@
-export function Game() {
+import { useRef, useState, type FormEvent, type ChangeEvent } from "react";
+import styles from "./styles.module.css";
+import { DefaultButton } from "../DefaultButton";
+
+type GameProps = {
+  wrongLetters: string[];
+  guessedLetters: string[];
+  letters: string[];
+  pickedCategory: string | null;
+  score: number;
+  guesses: number;
+  verifyLetter: (letter: string) => void;
+};
+
+export function Game({
+  guessedLetters,
+  letters,
+  wrongLetters,
+  pickedCategory,
+  score,
+  guesses,
+  verifyLetter,
+}: GameProps) {
+  const [letter, setLetter] = useState<string>("");
+  const letterInputRef = useRef(null);
+
+  const handleChangeLetters = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    setLetter(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    verifyLetter(letter);
+  };
+
   return (
-    <div>
-      <p>
-        <span>Pontuação 000</span>
+    <div className={styles.game}>
+      <p className={styles.points}>
+        <span>Pontuação {score}</span>
       </p>
       <h1>Adivinhe a palavra:</h1>
-      <h3>
-        Dica sobre a palavra: <span>DICA</span>
+      <h3 className={styles.tip}>
+        Dica sobre a palavra: <span>{pickedCategory?.toUpperCase()}</span>
       </h3>
-      <p>Você ainda tem "number" tentativas</p>
-      <div>
-        <p>letras</p>
+      <p>Você ainda tem {guesses} tentativas</p>
+      <div className={styles.wordContainer}>
+        {letters.map((letters: string, i: number) =>
+          guessedLetters.includes(letters) ? (
+            <span key={i} className={styles.letter}>
+              {letters}
+            </span>
+          ) : (
+            <span key={i} className={styles.blankSquare}></span>
+          ),
+        )}
       </div>
-      <div>
+      <div className={styles.letterContainer}>
         <p>Tente adivinhar uma letra da palavra:</p>
-        <form>
-          <input type="text" name="letter" required />
-          <button>Jogar!</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="letter"
+            maxLength={1}
+            required
+            onChange={handleChangeLetters}
+            value={letter}
+            ref={letterInputRef}
+          />
+          <DefaultButton children="JOGAR" />
         </form>
       </div>
-      <div>
+      <div className={styles.wrongLettersContainer}>
         <p>Letras já utilizadas:</p>
+        {wrongLetters.length > 0 &&
+          wrongLetters.map((letter, i) => <span key={i}>{letter}, </span>)}
       </div>
     </div>
   );
