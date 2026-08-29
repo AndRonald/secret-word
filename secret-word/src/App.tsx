@@ -7,7 +7,7 @@ import { Container } from "./components/Container";
 import { StartScreen } from "./components/StartScreen";
 import { useCallback, useState } from "react";
 import { wordsList } from "./data/words";
-import { stages } from "./Interface/stages";
+import { stages } from "./data/stages";
 
 import "./styles/themes.css";
 import "./styles/global.css";

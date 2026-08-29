@@ -1,13 +1,20 @@
-import styles from './styles.module.css'
-
 import { DefaultButton } from "../DefaultButton";
-import { PlayCircleIcon } from 'lucide-react';
+import { PlayCircleIcon } from "lucide-react";
 
-export function StartScreen () {
-    return(
-        <div className={styles.container}>
-            <p>Clique no botão abaixo para começar a jogar</p>
-            <DefaultButton children={<PlayCircleIcon/>}/>
-        </div>
-    )
-} 
+import styles from "./styles.module.css";
+
+type StartScreenProps = {
+  startGame: () => void;
+};
+
+export function StartScreen({ startGame }: StartScreenProps) {
+  function handleChangeGame() {
+    startGame();
+  }
+  return (
+    <div className={styles.container}>
+      <p>Clique no botão abaixo para começar a jogar</p>
+      <DefaultButton children={<PlayCircleIcon />} onClick={handleChangeGame} />
+    </div>
+  );
+}
